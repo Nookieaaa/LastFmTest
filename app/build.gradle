@@ -1,0 +1,68 @@
+apply plugin: 'com.android.application'
+apply plugin: 'org.greenrobot.greendao'
+
+android {
+    compileSdkVersion 26
+    defaultConfig {
+        applicationId "com.nookdev.lastfmtest"
+        minSdkVersion 19
+        targetSdkVersion 26
+        versionCode 1
+        versionName "1.0"
+        testInstrumentationRunner "android.support.test.runner.AndroidJUnitRunner"
+    }
+    buildTypes {
+        release {
+            minifyEnabled false
+            proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
+        }
+    }
+
+
+    compileOptions {
+        sourceCompatibility JavaVersion.VERSION_1_8
+        targetCompatibility JavaVersion.VERSION_1_8
+    }
+
+    greendao {
+        schemaVersion versions.dbSchemaVersion
+    }
+}
+
+dependencies {
+    implementation fileTree(include: ['*.jar'], dir: 'libs')
+
+    //Support
+    implementation support.appcompat
+    implementation support.constraintLayout
+    implementation support.design
+    implementation support.recyclerView
+    implementation support.cardView
+
+    //Dagger
+    implementation dagger.dagger
+    annotationProcessor dagger.daggerCompiler
+
+    //RxJava
+    implementation rxJava2.rxJava
+    implementation rxJava2.rxAndroid
+
+    //Persistence
+    implementation persistence.dao
+
+    //Network
+    implementation network.retrofit
+    implementation network.gsonConverter
+    implementation network.rxJavaAdapter
+    implementation network.loggingInterceptor
+    implementation network.picasso
+    implementation network.okhttp3Downloader
+
+    //Parcelable
+    implementation parceler.core
+    annotationProcessor parceler.compiler
+
+    testImplementation 'junit:junit:4.12'
+    androidTestImplementation 'com.android.support.test:runner:1.0.1'
+    androidTestImplementation 'com.android.support.test.espresso:espresso-core:3.0.1'
+}

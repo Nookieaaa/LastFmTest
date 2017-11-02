@@ -1,0 +1,11 @@
+<resources>
+    <string name="app_name">LastFmTest</string>
+    <string name="action_settings">Settings</string>
+    <string name="top_artists">Top artists</string>
+    <string name="listeners_template">Listeners: %d</string>
+    <string-array name="countries">
+        <item>Ukraine</item>
+        <item>Poland</item>
+        <item>Norway</item>
+    </string-array>
+</resources>

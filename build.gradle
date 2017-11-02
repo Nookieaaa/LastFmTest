@@ -1,0 +1,80 @@
+// Top-level build file where you can add configuration options common to all sub-projects/modules.
+
+buildscript {
+    
+    repositories {
+        google()
+        jcenter()
+        mavenCentral()
+    }
+    dependencies {
+        classpath 'com.android.tools.build:gradle:3.0.0'
+        classpath 'org.greenrobot:greendao-gradle-plugin:3.2.2'
+        // NOTE: Do not place your application dependencies here; they belong
+        // in the individual module build.gradle files
+    }
+}
+
+allprojects {
+    repositories {
+        google()
+        jcenter()
+    }
+}
+
+ext.versions = [
+        dagger: "2.11",
+        androidSupport: "26.1.0",
+        constraintLayout: "1.0.2",
+        rxJava2: "2.1.6",
+        rxAndroid: "2.0.1",
+        retrofit: "2.3.0",
+        loggingInterceptor: "3.9.0",
+        autoValue: "1.2",
+        greenDao: "3.2.2",
+        picasso: "2.5.2",
+        okhttp3Downloader: "1.1.0",
+        parceler:"1.1.9",
+
+        dbSchemaVersion: 1
+]
+
+ext.support = [
+        appcompat: "com.android.support:appcompat-v7:$versions.androidSupport",
+        design: "com.android.support:design:$versions.androidSupport",
+        cardView: "com.android.support:cardview-v7:$versions.androidSupport",
+        recyclerView: "com.android.support:recyclerview-v7:$versions.androidSupport",
+        constraintLayout: "com.android.support.constraint:constraint-layout:$versions.constraintLayout"
+]
+
+ext.dagger = [
+        dagger: "com.google.dagger:dagger:$versions.dagger",
+        daggerCompiler: "com.google.dagger:dagger-compiler:$versions.dagger"
+]
+
+ext.rxJava2 = [
+        rxJava: "io.reactivex.rxjava2:rxjava:$versions.rxJava2",
+        rxAndroid: "io.reactivex.rxjava2:rxandroid:$versions.rxAndroid",
+]
+
+ext.network = [
+        retrofit: "com.squareup.retrofit2:retrofit:$versions.retrofit",
+        gsonConverter: "com.squareup.retrofit2:converter-gson:$versions.retrofit",
+        rxJavaAdapter: "com.squareup.retrofit2:adapter-rxjava2:$versions.retrofit",
+        loggingInterceptor: "com.squareup.okhttp3:logging-interceptor:$versions.loggingInterceptor",
+        picasso: "com.squareup.picasso:picasso:$versions.picasso",
+        okhttp3Downloader: "com.jakewharton.picasso:picasso2-okhttp3-downloader:$versions.okhttp3Downloader"
+]
+
+ext.persistence = [
+        dao: "org.greenrobot:greendao:$versions.greenDao"
+]
+
+ext.parceler = [
+        core:"org.parceler:parceler-api:$versions.parceler",
+        compiler: "org.parceler:parceler:$versions.parceler"
+]
+
+task clean(type: Delete) {
+    delete rootProject.buildDir
+}
